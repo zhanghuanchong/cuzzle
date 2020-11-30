@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6307d78d-16c8-47e2-9320-db118d25b73c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/tests.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/code-comments.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/cuzzle.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.phpunit.result.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phpstan.neon.dist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Helpers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Pest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/example/app.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Formatter/CurlFormatter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Formatter/CurlFormatter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Client/RequestTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Client/RequestTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Formatter/CurlFormatterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Formatter/CurlFormatterTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Middleware/CurlFormatterMiddlewareTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Middleware/CurlFormatterMiddlewareTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/bootstrap.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/tests.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/cuzzle.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cuzzle.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +116,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606765434882</updated>
-      <workItem from="1606765438156" duration="5522000" />
+      <workItem from="1606765438156" duration="6994000" />
     </task>
     <servers />
   </component>
