@@ -1,28 +1,23 @@
 <?php
 
 use GuzzleHttp\Client;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Handler\MockHandler;
+use GuzzleHttp\HandlerStack;
 use Namshi\Cuzzle\Middleware\CurlFormatterMiddleware;
+use Psr\Log\LoggerInterface;
 
-class CurlFormatterMiddlewareTest extends \PHPUnit_Framework_TestCase
-{
-    public function testGet()
-    {
-        $mock = new MockHandler([new Response(204)]);
-        $handler = HandlerStack::create($mock);
-        $logger = $this->getMock(\Psr\Log\LoggerInterface::class);
+test('get', function () {
+    $mock = new MockHandler([new \GuzzleHttp\Psr7\Response(204)]);
+    $handler = HandlerStack::create($mock);
+    $logger = $this->getMockBuilder('Psr\Log\LoggerInterface')->getMock();
 
-        $logger
-            ->expects($this->once())
-            ->method('debug')
-            ->with($this->stringStartsWith('curl'))
-        ;
+    $logger
+        ->expects($this->once())
+        ->method('debug')
+        ->with($this->stringStartsWith('curl'));
 
-        $handler->after('cookies', new CurlFormatterMiddleware($logger));
-        $client = new Client(['handler' => $handler]);
+    $handler->after('cookies', new CurlFormatterMiddleware($logger));
+    $client = new Client(['handler' => $handler]);
 
-        $client->get('http://google.com');
-    }
-}
+    $client->get('http://google.com');
+});

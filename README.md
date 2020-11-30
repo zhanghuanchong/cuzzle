@@ -1,20 +1,18 @@
 # Cuzzle, cURL command from Guzzle requests
 
-[![Build Status](https://travis-ci.org/namshi/cuzzle.svg?branch=master)](https://travis-ci.org/namshi/cuzzle)
+![Tests](https://github.com/octoper/cuzzle/workflows/Tests/badge.svg)
 
 This library let's you dump a Guzzle request to a cURL command for debug and log purpose.
 
 ## Prerequisites
 
-This library needs PHP 5.5+.
-
-It has been tested using PHP5.5 to PHP7.0 and HHVM.
+This library needs PHP 7.3+.
 
 ## Installation
 
 You can install the library directly with composer:
 ```
-composer require namshi/cuzzle
+composer require octoper/cuzzle
 ```
 (Add `--dev` if you don't need it in production environment)
 
@@ -62,9 +60,5 @@ var_dump($testHandler->getRecords()); //check the cURL request in the logs,
 You can run tests locally with
 
 ```
-phpunit
+./vendor/bin/pest
 ```
-
-## Feedback
-
-Add an issue, open a PR, drop us an email! We would love to hear from you!

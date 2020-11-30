@@ -6,10 +6,6 @@ use GuzzleHttp\Cookie\CookieJarInterface;
 use GuzzleHttp\Cookie\SetCookie;
 use Psr\Http\Message\RequestInterface;
 
-/**
- * Class CurlFormatter it formats a Guzzle request to a cURL shell command
- * @package Namshi\Cuzzle\Formatter
- */
 class CurlFormatter
 {
     /**
@@ -23,7 +19,7 @@ class CurlFormatter
     protected $currentLineLength;
 
     /**
-     * @var string[]
+     * @var array
      */
     protected $options;
 
@@ -59,6 +55,8 @@ class CurlFormatter
 
     /**
      * @param int $commandLineLength
+     *
+     * @return void
      */
     public function setCommandLineLength($commandLineLength)
     {
@@ -66,8 +64,10 @@ class CurlFormatter
     }
 
     /**
-     * @param $name
-     * @param null $value
+     * @param mixed $name
+     * @param mixed|null $value
+     *
+     * @return void
      */
     protected function addOption($name, $value = null)
     {
@@ -84,7 +84,9 @@ class CurlFormatter
     }
 
     /**
-     * @param $part
+     * @param mixed $part
+     *
+     * @return void
      */
     protected function addCommandPart($part)
     {
@@ -101,6 +103,8 @@ class CurlFormatter
 
     /**
      * @param RequestInterface $request
+     *
+     * @return void
      */
     protected function extractHttpMethodArgument(RequestInterface $request)
     {
@@ -115,6 +119,8 @@ class CurlFormatter
 
     /**
      * @param RequestInterface $request
+     *
+     * @return void
      */
     protected function extractBodyArgument(RequestInterface $request)
     {
@@ -146,6 +152,8 @@ class CurlFormatter
     /**
      * @param RequestInterface $request
      * @param array            $options
+     *
+     * @return void
      */
     protected function extractCookiesArgument(RequestInterface $request, array $options)
     {
@@ -174,6 +182,8 @@ class CurlFormatter
 
     /**
      * @param RequestInterface $request
+     *
+     * @return void
      */
     protected function extractHeadersArgument(RequestInterface $request)
     {
@@ -193,6 +203,9 @@ class CurlFormatter
         }
     }
 
+    /**
+     * @return void
+     */
     protected function addOptionsToCommand()
     {
         ksort($this->options);
@@ -213,6 +226,8 @@ class CurlFormatter
     /**
      * @param RequestInterface $request
      * @param array            $options
+     *
+     * @return void
      */
     protected function extractArguments(RequestInterface $request, array $options)
     {
@@ -225,6 +240,8 @@ class CurlFormatter
 
     /**
      * @param RequestInterface $request
+     *
+     * @return void
      */
     protected function extractUrlArgument(RequestInterface $request)
     {

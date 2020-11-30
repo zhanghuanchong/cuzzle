@@ -1,20 +1,29 @@
 {
-    "name": "namshi/cuzzle",
+    "name": "octoper/cuzzle",
     "description": "Get the cURL shell command from a Guzzle request",
     "require": {
-        "php": ">=5.5.0",
-        "guzzlehttp/guzzle": "^6.0",
-        "psr/log": "^1.0"
+        "php": ">=7.3",
+        "guzzlehttp/guzzle": "^7.2",
+        "psr/log": "^1.1"
     },
     "require-dev": {
-        "phpunit/phpunit": "^4.2.2"
+        "phpunit/phpunit": "^9.4.3",
+        "pestphp/pest": "^0.3.14",
+        "phpstan/phpstan": "^0.12.58"
     },
     "autoload": {
         "psr-4": {
             "Namshi\\Cuzzle\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "cirpo",
@@ -29,5 +38,13 @@
         "branch-alias": {
             "dev-master": "2.0.x-dev"
         }
+    },
+    "scripts": {
+        "test:types": "phpstan analyse --ansi --memory-limit=0",
+        "test:unit": "pest --colors=always",
+        "test": [
+            "@test:types",
+            "@test:unit"
+        ]
     }
 }
