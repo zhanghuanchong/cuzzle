@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6307d78d-16c8-47e2-9320-db118d25b73c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/tests.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/tests.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/cuzzle.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cuzzle.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6307d78d-16c8-47e2-9320-db118d25b73c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,8 +99,21 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Pest.Unnamed">
+    <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
     <configuration name="Unnamed" type="PestRunConfigurationType" nameIsGenerated="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="phpunit.xml" type="PestRunConfigurationType">
+      <option name="pestRunnerSettings">
+        <PestRunner scope="ConfigurationFile" />
+      </option>
+      <option name="runnerSettings">
+        <PhpTestRunnerSettings scope="ConfigurationFile" />
+      </option>
       <method v="2" />
     </configuration>
   </component>
@@ -116,7 +125,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606765434882</updated>
-      <workItem from="1606765438156" duration="6994000" />
+      <workItem from="1606765438156" duration="7203000" />
     </task>
     <servers />
   </component>
