@@ -1,7 +1,9 @@
 # Cuzzle, cURL command from Guzzle requests
 
 <p align="center">
-    <a href="https://github.com/octoper/cuzzle/actions?query=workflow%3ATests"><img src="https://github.com/octoper/cuzzle/workflows/Tests/badge.svg" alt="Tests"/></a> <a href="https://packagist.org/packages/octoper/cuzzle"><img src="https://img.shields.io/packagist/v/octoper/cuzzle?label=stable" alt="Latest Stable Version"/></a> <a href="https://packagist.org/packages/octoper/cuzzle"><img src="https://img.shields.io/packagist/l/octoper/cuzzle.svg" alt="License"/></a>
+    <a href="https://github.com/octoper/cuzzle/actions?query=workflow%3ATests"><img src="https://github.com/octoper/cuzzle/workflows/Tests/badge.svg" alt="Tests"/></a> 
+<a href="https://packagist.org/packages/octoper/cuzzle"><img src="https://img.shields.io/packagist/v/octoper/cuzzle?label=stable" alt="Latest Stable Version"/></a>
+<a href="https://packagist.org/packages/octoper/cuzzle"><img src="https://img.shields.io/packagist/l/octoper/cuzzle.svg" alt="License"/></a>
 </p>
 
 This library let's you dump a Guzzle request to a cURL command for debug and log purpose.
