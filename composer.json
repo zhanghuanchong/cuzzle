@@ -26,6 +26,10 @@
     "prefer-stable": true,
     "authors": [
         {
+            "name": "Vaggelis Yfantis",
+            "email": "me@octoper.com"
+        },
+        {
             "name": "cirpo",
             "email": "alessandro.cinelli@gmail.com"
         },
