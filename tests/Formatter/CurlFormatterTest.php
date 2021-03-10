@@ -71,7 +71,7 @@ test('POST', function () {
     $curl    = $this->curlFormatter->format($request);
 
     expect($curl)->not()->toContain(" -G ");
-    expect($curl)->toContain("-d 'foo=bar&hello=world'");
+    expect($curl)->toContain('-d "foo=bar&hello=world"');
 });
 
 test('large POST request', function () {
