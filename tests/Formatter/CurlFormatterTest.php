@@ -74,6 +74,17 @@ test('POST', function () {
     expect($curl)->toContain("-d 'foo=bar&hello=world'");
 });
 
+test('large POST request', function () {
+    ini_set('memory_limit', -1);
+
+    $body = str_repeat('A', 1024*1024*64);
+
+    $request = new Request('POST', 'http://example.local', [], \GuzzleHttp\Psr7\stream_for($body));
+    $curl = $this->curlFormatter->format($request);
+
+    expect($curl)->not()->toBeNull();
+});
+
 test('HEAD', function () {
     $request = new Request('HEAD', 'http://example.local');
     $curl    = $this->curlFormatter->format($request);
