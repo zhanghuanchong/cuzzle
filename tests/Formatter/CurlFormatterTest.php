@@ -21,47 +21,47 @@ test('skip host in headers', function () {
     $request = new Request('GET', 'http://example.local');
     $curl    = $this->curlFormatter->format($request);
 
-    $this->assertEquals("curl 'http://example.local'", $curl);
+    $this->assertEquals("curl 'http://example.local'", str_replace('"', '\'', $curl));
 });
 
 test('simple get', function () {
     $request = new Request('GET', 'http://example.local');
     $curl    = $this->curlFormatter->format($request);
 
-    $this->assertEquals("curl 'http://example.local'", $curl);
+    $this->assertEquals("curl 'http://example.local'", str_replace('"', '\'', $curl));
 });
 
 test('simple GET with header', function () {
     $request = new Request('GET', 'http://example.local', ['foo' => 'bar']);
     $curl    = $this->curlFormatter->format($request);
 
-    $this->assertEquals("curl 'http://example.local' -H 'foo: bar'", $curl);
+    $this->assertEquals("curl 'http://example.local' -H 'foo: bar'", str_replace('"', '\'', $curl));
 });
 
 test('simple GET with multiple header', function () {
     $request = new Request('GET', 'http://example.local', ['foo' => 'bar', 'Accept-Encoding' => 'gzip,deflate,sdch']);
     $curl    = $this->curlFormatter->format($request);
 
-    $this->assertEquals("curl 'http://example.local' -H 'foo: bar' -H 'Accept-Encoding: gzip,deflate,sdch'", $curl);
+    $this->assertEquals("curl 'http://example.local' -H 'foo: bar' -H 'Accept-Encoding: gzip,deflate,sdch'", str_replace('"', '\'', $curl));
 });
 
 test('GET With Query String', function () {
     $request = new Request('GET', 'http://example.local?foo=bar');
     $curl    = $this->curlFormatter->format($request);
 
-    $this->assertEquals("curl 'http://example.local?foo=bar'", $curl);
+    $this->assertEquals("curl 'http://example.local?foo=bar'", str_replace('"', '\'', $curl));
 
     $request = new Request('GET', 'http://example.local?foo=bar');
     $curl = $this->curlFormatter->format($request);
 
-    $this->assertEquals("curl 'http://example.local?foo=bar'", $curl);
+    $this->assertEquals("curl 'http://example.local?foo=bar'", str_replace('"', '\'', $curl));
 
     $body = Utils::streamFor(http_build_query(['foo' => 'bar', 'hello' => 'world'], '', '&'));
 
     $request = new Request('GET', 'http://example.local',[],$body);
     $curl    = $this->curlFormatter->format($request);
 
-    $this->assertEquals("curl 'http://example.local' -G  -d 'foo=bar&hello=world'",$curl);
+    $this->assertEquals("curl 'http://example.local' -G  -d 'foo=bar&hello=world'", str_replace('"', '\'', $curl));
 });
 
 test('POST', function () {
@@ -71,7 +71,19 @@ test('POST', function () {
     $curl    = $this->curlFormatter->format($request);
 
     expect($curl)->not()->toContain(" -G ");
-    expect($curl)->toContain("-d 'foo=bar&hello=world'");
+    expect(str_replace('"', '\'', $curl))->toContain("-d 'foo=bar&hello=world'");
+
+});
+
+test('large POST request', function () {
+    ini_set('memory_limit', -1);
+
+    $body = str_repeat('A', 1024*1024*64);
+
+    $request = new Request('POST', 'http://example.local', [], \GuzzleHttp\Psr7\stream_for($body));
+    $curl = $this->curlFormatter->format($request);
+
+    expect($curl)->not()->toBeNull();
 });
 
 test('HEAD', function () {
@@ -99,7 +111,7 @@ test('PUT', function () {
     $request = new Request('PUT', 'http://example.local', [], Utils::streamFor('foo=bar&hello=world'));
     $curl    = $this->curlFormatter->format($request);
 
-    expect($curl)->toContain("-d 'foo=bar&hello=world'");
+    expect(str_replace('"', '\'', $curl))->toContain("-d 'foo=bar&hello=world'");
     expect($curl)->toContain("-X PUT");
 });
 
@@ -107,7 +119,7 @@ test('proper body relative', function () {
     $request = new Request('PUT', 'http://example.local', [], Utils::streamFor('foo=bar&hello=world'));
     $curl    = $this->curlFormatter->format($request);
 
-    expect($curl)->toContain("-d 'foo=bar&hello=world'");
+    expect(str_replace('"', '\'', $curl))->toContain("-d 'foo=bar&hello=world'");
     expect($curl)->toContain("-X PUT");
 });
 

@@ -18,22 +18,22 @@ test('get with cookies', function () {
     $jar = CookieJar::fromArray(['Foo' => 'Bar', 'identity' => 'xyz'], 'local.example');
     $curl    = $this->curlFormatter->format($request, ['cookies' => $jar]);
 
-    expect($curl)->not()->toContain("-H 'Host: local.example'");
-    expect($curl)->toContain("-b 'Foo=Bar; identity=xyz'");
+    expect(str_replace('"', '\'', $curl))->not()->toContain("-H 'Host: local.example'");
+    expect(str_replace('"', '\'', $curl))->toContain("-b 'Foo=Bar; identity=xyz'");
 });
 
 test('POST', function () {
     $request = new Request('POST', 'http://local.example', [], Utils::streamFor('foo=bar&hello=world'));
     $curl    = $this->curlFormatter->format($request);
 
-    expect($curl)->toContain("-d 'foo=bar&hello=world'");
+    expect(str_replace('"', '\'', $curl))->toContain("-d 'foo=bar&hello=world'");
 });
 
 test('PUT', function () {
     $request = new Request('PUT', 'http://local.example', [], Utils::streamFor('foo=bar&hello=world'));
     $curl    = $this->curlFormatter->format($request);
 
-    expect($curl)->toContain("-d 'foo=bar&hello=world'");
+    expect(str_replace('"', '\'', $curl))->toContain("-d 'foo=bar&hello=world'");
     expect($curl)->toContain('-X PUT');
 });
 
@@ -48,7 +48,7 @@ test('HEAD', function () {
     $request = new Request('HEAD', 'http://local.example');
     $curl    = $this->curlFormatter->format($request);
 
-    expect($curl)->toContain("curl 'http://local.example' --head");
+    expect(str_replace('"', '\'', $curl))->toContain("curl 'http://local.example' --head");
 });
 
 test('OPTIONS', function () {
