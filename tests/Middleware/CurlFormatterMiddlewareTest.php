@@ -1,15 +1,15 @@
 <?php
 
+use Psr\Log\LoggerInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use Namshi\Cuzzle\Middleware\CurlFormatterMiddleware;
-use Psr\Log\LoggerInterface;
 
 test('get', function () {
     $mock = new MockHandler([new \GuzzleHttp\Psr7\Response(204)]);
     $handler = HandlerStack::create($mock);
-    $logger = $this->getMockBuilder('Psr\Log\LoggerInterface')->getMock();
+    $logger = $this->getMockBuilder(LoggerInterface::class)->getMock();
 
     $logger
         ->expects($this->once())
@@ -19,5 +19,5 @@ test('get', function () {
     $handler->after('cookies', new CurlFormatterMiddleware($logger));
     $client = new Client(['handler' => $handler]);
 
-    $client->get('http://google.com');
+    $client->get('https://google.com');
 });

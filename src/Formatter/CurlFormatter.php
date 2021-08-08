@@ -170,7 +170,7 @@ class CurlFormatter
         /** @var SetCookie $cookie */
         foreach ($options['cookies'] as $cookie) {
             if ($cookie->matchesPath($path) && $cookie->matchesDomain($host) &&
-                ! $cookie->isExpired() && ( ! $cookie->getSecure() || $scheme == 'https')) {
+                ! $cookie->isExpired() && ( ! $cookie->getSecure() || $scheme === 'https')) {
 
                 $values[] = $cookie->getName() . '=' . $cookie->getValue();
             }
@@ -252,7 +252,6 @@ class CurlFormatter
     protected function escapeShellArgument($argument)
     {
         $process = new Process([$argument]);
-        $escaped = $process->getCommandLine();
-        return $escaped;
+        return $process->getCommandLine();
     }
 }
