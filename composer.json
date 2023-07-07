@@ -1,5 +1,5 @@
 {
-    "name": "octoper/cuzzle",
+    "name": "devwing/cuzzle",
     "description": "Get the cURL shell command from a Guzzle request",
     "require": {
         "php": ">=8.0",
